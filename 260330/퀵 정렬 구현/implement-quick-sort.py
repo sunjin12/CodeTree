@@ -1,30 +1,29 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-def quick_sort(start, end):
-    if start >= end:
-        return
+def partition(low, high):
+    pivot = arr[high]
+    i = low
+
+    for j in range(low, high):
+        if arr[j] < pivot:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
     
-    pivot = start
-    left = start + 1
-    right = end
+    arr[i], arr[high] = arr[high], arr[i]
 
-    while left <= right:
-        while left <= end and arr[left] <= arr[pivot]:
-            left += 1
+    return i
 
-        while right > start and arr[right] >= arr[pivot]:
-            right -= 1
-    
-        if left <= right:
-            arr[left], arr[right] = arr[right], arr[left]
-        else:
-            arr[right], arr[pivot] = arr[pivot], arr[right]
-    
-    quick_sort(left, right - 1)
-    quick_sort(right + 1, end)
+def quick_sort(low, high):
+    if low < high:
+        pos = partition(low, high)
 
-quick_sort(0, n-1)
+        quick_sort(low, pos - 1)
+        quick_sort(pos + 1, high)
 
-print(" ".join(list(map(str, arr))))
+quick_sort(0, n - 1)
+
+for elem in arr:
+    print(elem, end=' ')
+
 
