@@ -10,10 +10,10 @@ def quick_sort(start, end):
     right = end
 
     while left <= right:
-        while left <= end and arr[left] < arr[pivot]:
+        while left <= end and arr[left] <= arr[pivot]:
             left += 1
 
-        while right > start and arr[right] > arr[pivot]:
+        while right > start and arr[right] >= arr[pivot]:
             right -= 1
     
         if left <= right:
