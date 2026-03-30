@@ -78,10 +78,11 @@ class DoublyLinkedList:
         return self.tail
 
 dll = DoublyLinkedList()
-it = dll.end()
 
 for c in s:
-    dll.insert(it, c)
+    dll.push_back(c)
+
+it = dll.end()
 
 for command in commands:
     if command[0] == 'L':
@@ -101,8 +102,10 @@ for command in commands:
             pass
         else:
             dll.erase(it)
+
     elif command[0] == 'P':
         dll.insert(it, command[1])
+
     else:
         print("wrong input")
 
