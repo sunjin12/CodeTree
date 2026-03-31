@@ -6,10 +6,11 @@ for p in str:
         st.append('(')
     else:
         if not st:
-            print("No")
+            st.append("E")
+            break
         st.pop()
     
-    if st:
-        print("No")
-    else:
-        print(Y)
+if st:
+    print("No")
+else:
+    print("Yes")
