@@ -33,7 +33,7 @@ def rhombus(x, y, k):
 
 # k 0~n-1까지 돌며 모든 격자 체크
 max_gold = 0
-for k in range(n):
+for k in range(2*n-1):
     for i in range(n):
         for j in range(n):
             gold = rhombus(i, j, k)
