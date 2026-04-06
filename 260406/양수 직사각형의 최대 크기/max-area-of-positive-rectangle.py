@@ -11,7 +11,7 @@ def rec(x, y):
         max_col = m
         for j in range(x, i+1):
             for k in range(y, m):
-                if grid[j][k] < 0:
+                if grid[j][k] <= 0:
                     max_col = min(max_col, k)
         rec = (i - x + 1) * (max_col - y)
 
