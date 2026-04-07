@@ -50,16 +50,16 @@ def bomb(x, y, k):
     return output
 
 max_pairs = 0
-# 폭탄 크기 1 ~ n
-for k in range(n):
-    # n x n 순환
-    for i in range(n):
-        for j in range(n):
-            # 폭탄 터진 후 매트릭스
-            after_bomb = bomb(i, j, k)
 
-            # 숫자쌍 체크
-            max_pairs = max(max_pairs, check_pair(after_bomb))
+# n x n 순환
+for i in range(n):
+    for j in range(n):
+        # 폭탄 터진 후 매트릭스
+        k = grid[i][j] - 1
+        after_bomb = bomb(i, j, k)
+
+        # 숫자쌍 체크
+        max_pairs = max(max_pairs, check_pair(after_bomb))
 
 # 제일 큰 숫자쌍 갯수 출력
 print(max_pairs)
