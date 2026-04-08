@@ -28,15 +28,17 @@ def sim(x, y, d):
             else: d = Dir.UP
             
         # 2번 거울 (\) : 상<->좌, 하<->우
-        else:
+        elif grid[x][y] == 2:
             if d == Dir.UP: d = Dir.LEFT
             elif d == Dir.LEFT: d = Dir.UP
             elif d == Dir.DOWN: d = Dir.RIGHT
             else: d = Dir.DOWN
+            
+        # grid[x][y] == 0 (빈 칸)인 경우 방향 전환 로직을 건너뛰고 직진합니다.
         
-        # d.value를 사용하여 Enum에서 정수값을 추출 (TypeError 해결!)
+        # d.value를 사용하여 Enum에서 정수값을 추출
         x, y = x + dxys[d.value][0], y + dxys[d.value][1]
-        cnt += 1  # 이동 완료 후 1초 증가 (마지막 격자 밖으로 나가는 시간도 자연스럽게 포함됨)
+        cnt += 1  # 이동 완료 후 1초 증가
     
     return cnt
 
