@@ -18,12 +18,13 @@ def sim(m, r, c):
     # 구슬 다음 위치 계산
     for i in range(m):
         x, y = r[i], c[i]
-        c_max = a[x][y]
+        c_max = 0
         mx, my = x, y
         for dx, dy in dxys:
             nx, ny = x + dx, y + dy
             if is_range(nx, ny) and a[nx][ny] > c_max:
                 mx, my = nx, ny
+                c_max = a[mx][my]
         
         next_pos[mx][my] += 1
     
