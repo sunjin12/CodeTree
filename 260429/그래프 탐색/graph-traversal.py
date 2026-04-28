@@ -23,6 +23,9 @@ def dfs(node):
     
 dfs(1)
 
-print(nums - 1)
+if nums == 0:
+    print(0)
+else:
+    print(nums - 1)
 
 
