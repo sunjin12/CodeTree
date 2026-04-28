@@ -21,11 +21,9 @@ def dfs(node):
             visited[cur] = True
             dfs(cur)
     
+visited[1] = True
 dfs(1)
 
-if nums == 0:
-    print(0)
-else:
-    print(nums - 1)
+print(nums)
 
 
